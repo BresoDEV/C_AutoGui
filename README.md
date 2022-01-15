@@ -211,32 +211,32 @@ cyautogui.Mouse.MoveAndDoubleClick(posx, posy);
 <br >
 
 
-   
+
 <p>Move cursor to XY current relative position and do double click</p>
 
 ```CSharp
-MoveCursorRelAndDoubleClick(int x, int y) 
+cyautogui.Mouse.MoveCursorRelAndDoubleClick(int x, int y) 
  ```
 
 <br >
 <p>Move the mouse to XY coordinates</p>
 
 ```CSharp
-MoveCursorTo(int x, int y)  
+cyautogui.Mouse.MoveCursorTo(int x, int y)  
  ```
 
 <br >
 <p>Move mouse relative to its current position</p>
  
 ```CSharp
-MoveCursorRel(int x, int y) 
+cyautogui.Mouse.MoveCursorRel(int x, int y) 
  ``` 
 
 <br >
 <p>Get the Y position of the mouse</p>
 
 ```CSharp
-getMouseY() 
+cyautogui.Mouse.getMouseY() 
  ```
  
 <br >
@@ -244,7 +244,7 @@ getMouseY()
 
 
 ```CSharp
-getMouseX()  
+cyautogui.Mouse.getMouseX()  
  ```
 
 <br >
@@ -252,7 +252,7 @@ getMouseX()
 
 
 ```CSharp
-StringgetMouseY()  
+cyautogui.Mouse.StringgetMouseY()  
  ```
 
 <br >
@@ -260,7 +260,7 @@ StringgetMouseY()
 
 
 ```CSharp
-StringgetMouseX() 
+cyautogui.Mouse.StringgetMouseX() 
  ```
  
  <br >
