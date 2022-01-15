@@ -321,3 +321,88 @@ cyautogui.Keyboard.KeyPress(string key)
 <hr />
 <h1>Other Events:</h1><br >
 <br >
+
+ 
+<p>Define your new Global Wait Timer, default is 500</p>
+
+
+```CSharp
+cyautogui.Other.ChangeGlobalTimePointer(int time)
+ ```
+
+<br >
+
+<p>Start another process by name</p>
+
+
+```CSharp
+cyautogui.Other.StartProcess(string proc)
+ ```
+
+<br >
+
+<p>Used to open folders or files on your PC</p>
+
+
+```CSharp
+cyautogui.Other.OpenFolder(string path)
+ ```
+
+<br >
+
+<p>Get the size X of the primary monitor on string format</p>
+ 
+```CSharp
+cyautogui.Other.StringsizeScreenX()
+ ```
+
+<br >
+
+<p>Get the size Y of the primary monitor on string format</p>
+
+```CSharp
+cyautogui.Other.StringsizeScreenY()
+ ```
+
+<br >
+
+<p>Get the size X of the primary monitor</p>
+
+```CSharp
+cyautogui.Other.sizeScreenX()
+ ```
+
+<br >
+
+<p>Get the size Y of the primary monitor</p>
+
+```CSharp
+cyautogui.Other.sizeScreenY()
+ ```
+
+<br >
+
+<p>This displays some text with an OK button.</p>
+
+```CSharp
+cyautogui.Other.alert(string msg)
+ ```
+
+<br >
+
+<p>Do some pause on code.</p>
+
+```CSharp
+cyautogui.Other.Wait(int timeMiliseconds)
+ ```
+
+<br >
+
+
+<p>Join several string and make onlt one</p>
+
+```CSharp
+cyautogui.Other.AddString(.....);
+```
+
+<br >
