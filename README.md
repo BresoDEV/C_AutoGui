@@ -153,3 +153,59 @@ cyautogui.Mouse.DoMouseClick();
 
 <br >
 
+
+<p>Move cursor to XY pos and do click</p>
+
+
+
+```CSharp
+cyautogui.Mouse.MoveAndClick(posX, posY);
+```
+
+
+
+
+
+<br >
+
+<p>Move cursor relative to current position and do click</p>
+
+
+
+```CSharp
+cyautogui.Mouse.MoveCursorRelAndClick(posX, posY);
+```
+
+
+
+
+
+<br >
+
+<p>Do double click on current position</p>
+
+
+
+```CSharp
+cyautogui.Mouse.DoMouseDoubleClick();
+```
+
+
+
+
+
+<br >
+
+<p>Move cursor to XY position and do double click</p>
+
+
+
+```CSharp
+cyautogui.Mouse.MoveAndDoubleClick(posx, posy);
+```
+
+
+
+
+
+<br >
