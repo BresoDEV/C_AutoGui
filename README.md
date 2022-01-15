@@ -15,6 +15,7 @@ for inumerous things</p>
 <p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#keyboard-events> Keyboard Events </a></p>
 <p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#other-events> Other Events </a></p>
 <p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#convertto-events> ConvertTo Events </a></p>
+<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#credits> Credits </a></p>
 
 
 <hr />
@@ -517,3 +518,10 @@ cyautogui.ConvertTo.toString(double key);
 ```
 
 <br >
+
+
+
+<h1>Credits:</h1><br >
+<p>This DLL/Code is created by me (BresoDEV), and if you use this on your tool or make some changes on code, give me credits, because this spend a lot of my time, then be honest =)</p>
+
+
