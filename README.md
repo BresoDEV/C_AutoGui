@@ -96,7 +96,7 @@ Convert DOUBLE value to STRING
 <hr />
 
 
-<h1>How to Use:</h1><br >
+<h1>Mouse Functions:</h1><br >
 <p>Do a mouse right clik on current mouse position</p>
 
 
