@@ -9,10 +9,10 @@ for inumerous things</p>
 <hr />
 <h1>Documentation</h1><br >
 
-<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#mouse-functions"> Mouse Events </a></p> <br >
-<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#keyboard-events"> Keyboard Events </a></p> <br >
-<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#other-events"> Other Events </a></p> <br >
-<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#convertto-events"> ConvertTo Events </a></p> <br >
+<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#mouse-functions> Mouse Events </a></p>
+<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#keyboard-events> Keyboard Events </a></p>
+<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#other-events> Other Events </a></p>
+<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#convertto-events> ConvertTo Events </a></p>
 
 
 <hr />
