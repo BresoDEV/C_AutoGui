@@ -209,3 +209,58 @@ cyautogui.Mouse.MoveAndDoubleClick(posx, posy);
 
 
 <br >
+
+
+   
+<p>Move cursor to XY current relative position and do double click</p>
+
+```CSharp
+MoveCursorRelAndDoubleClick(int x, int y) 
+ ```
+
+<br >
+<p>Move the mouse to XY coordinates</p>
+
+```CSharp
+MoveCursorTo(int x, int y)  
+ ```
+
+<br >
+<p>Move mouse relative to its current position</p>
+ 
+```CSharp
+MoveCursorRel(int x, int y) 
+ ``` 
+
+<br >
+<p>Get the Y position of the mouse</p>
+
+```CSharp
+getMouseY() 
+ ```
+ 
+<br >
+<p>Get the X position of the mouse</p>
+
+
+```CSharp
+getMouseX()  
+ ```
+
+<br >
+<p>Get the Y position of the mouse on STRING format</p>
+
+
+```CSharp
+StringgetMouseY()  
+ ```
+
+<br >
+<p>Get the X position of the mouse on STRING format</p>
+
+
+```CSharp
+StringgetMouseX() 
+ ```
+ 
+ <br >
