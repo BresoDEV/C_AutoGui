@@ -267,3 +267,54 @@ cyautogui.Mouse.StringgetMouseX()
  
  <hr />
 <h1>Keyboard Events:</h1><br >
+
+ 
+<p>Shift hotkeys</p>
+
+```CSharp
+cyautogui.Keyboard.ShiftHotkey(string key) 
+```   
+ 
+ <br >
+<p>Alt hotkeys</p>
+ 
+```CSharp
+cyautogui.Keyboard.AltHotkey(string key) 
+```   
+ 
+ <br >
+<p>TAB</p>
+
+```CSharp
+cyautogui.Keyboard.TAB(int times) 
+```   
+ 
+ <br >
+<p>CTRL hotkeys</p>
+
+```CSharp
+cyautogui.Keyboard.CTRLHotkey(string key) 
+```   
+ 
+ <br >
+<p>Write strings</p>
+
+```CSharp
+cyautogui.Keyboard.Write(string key) 
+```   
+ 
+ <br >
+<p>Used to press same key, what times you want </p><br /> <br />
+
+```CSharp
+cyautogui.Keyboard.WriteMoreThan1time(string key, int times) 
+```   
+ 
+ <br >
+<p>Simulate keyboard press</p>
+
+```CSharp
+cyautogui.Keyboard.KeyPress(string key) 
+```   
+	 
+ <br >
