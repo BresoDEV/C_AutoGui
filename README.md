@@ -94,3 +94,34 @@ Convert DOUBLE value to STRING
 
 
 <hr />
+
+
+<h1>How to Use:</h1><br >
+<p>Do a mouse right clik on current mouse position</p>
+
+
+
+```bash
+cyautogui.Mouse.DoMouseRightClick()
+```
+
+
+
+
+
+<br >
+
+<p>Move cursor to XY pos and do right click</p>
+
+
+
+```CSharp
+cyautogui.Mouse.MoveAndRightClick(posX, posY)
+```
+
+
+
+
+
+<br >
+
