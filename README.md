@@ -48,7 +48,7 @@ Create your project
 Click on Add New Item
 Select Class
 Put any name you want
-Copy and paste all code to your new class file 
+Copy and paste all code of CAutoGui.cs to your new class file 
 Done
 
 ```
