@@ -9,6 +9,7 @@ for inumerous things</p>
 <hr />
 <h1>Documentation</h1><br >
 
+<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#how-to-use> How to use/install </a></p>
 <p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#mouse-functions> Mouse Events </a></p>
 <p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#keyboard-events> Keyboard Events </a></p>
 <p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#other-events> Other Events </a></p>
@@ -16,6 +17,44 @@ for inumerous things</p>
 
 
 <hr />
+
+<h1>How to Use:</h1><br >
+<p>DLL:
+</p>
+
+
+
+```
+Create your project
+Click on Add Reference
+Browse and select Cyautogui.dll
+Click OK
+Done
+
+```
+
+
+
+
+
+<p>Class</p>
+
+
+
+```
+Create your project
+Click on Add New Item
+Select Class
+Put any name you want
+Copy and paste all code to your new class file 
+Done
+
+```
+
+<hr />
+
+
+
 <p>Mouse Options::
 </p>
 
