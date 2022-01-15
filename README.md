@@ -264,3 +264,6 @@ cyautogui.Mouse.StringgetMouseX()
  ```
  
  <br >
+ 
+ <hr />
+<h1>Keyboard Events:</h1><br >
