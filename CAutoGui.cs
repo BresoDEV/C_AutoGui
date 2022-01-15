@@ -1,3 +1,18 @@
+/*
+   -------------------C Auto Gui Class--------------------------
+   ------------------------------------------------------------
+                     Created by BresoDEV
+ 
+    Based on the famous tool in Python, PYAUTOGUI
+    I present to you, a class in C# with similar functionality
+    With this tool, you can control your mouse and keyboard 
+    automatically, so you can easily create task automation
+    for inumerous things
+
+
+ 
+ */
+
 using System;
 using System.Runtime.InteropServices;
 using System.Drawing;
