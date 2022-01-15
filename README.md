@@ -318,3 +318,6 @@ cyautogui.Keyboard.KeyPress(string key)
 ```   
 	 
  <br >
+<hr />
+<h1>Other Events:</h1><br >
+<br >
