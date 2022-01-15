@@ -10,6 +10,7 @@ for inumerous things</p>
 <h1>Documentation</h1><br >
 
 <p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#how-to-use> How to use/install </a></p>
+<p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#features> Features </a></p>
 <p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#mouse-functions> Mouse Events </a></p>
 <p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#keyboard-events> Keyboard Events </a></p>
 <p><a href=https://github.com/BresoDEV/C_AutoGui/blob/main/README.md#other-events> Other Events </a></p>
@@ -54,13 +55,15 @@ Done
 <hr />
 
 
+<h1>Features:</h1><br >
+
 
 <p>Mouse Options::
 </p>
 
 
 
-```bash
+```
 Do a mouse right clik on current mouse position
 Move cursor to XY pos and do right click
 Move cursor relative to current position and do right click
@@ -81,13 +84,13 @@ Get the X position of the mouse on STRING format
 
 
 
-<hr />
+ 
 <p>Keyboard Options::
 </p>
 
 
 
-```bash
+```
 Shift Hotkey Function
 Alt Hotkey Function
 Ctrl Hotkey Function
@@ -100,13 +103,13 @@ Simulate keyboard press
 
 
 
-<hr />
+ 
 <p>Misc Options::
 </p>
 
 
 
-```bash
+```
 Change Global Time Pointer (functions delay)
 Start another process by name
 Open folders or files on your PC
@@ -122,13 +125,13 @@ Join several string and make onlt one
 
 
 
-<hr />
+ 
 <p>Convert Options::
 </p>
 
 
 
-```bash
+```
 Convert INT value to DOUBLE
 Convert STRING value to DOUBLE
 Convert STRING to INT32
