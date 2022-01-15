@@ -406,3 +406,63 @@ cyautogui.Other.AddString(.....);
 ```
 
 <br >
+
+
+
+<h1>ConvertTo Events:</h1><br >
+
+  
+<p>Convert INT value to DOUBLE</p>
+ 
+```CSharp
+cyautogui.ConvertTo.toDouble(int value);
+```
+
+<br >
+
+<p>Convert STRING value to DOUBLE</p>
+
+```CSharp
+cyautogui.ConvertTo.toDouble(string value);
+```
+
+<br >
+
+<p>Convert STRING to INT32</p>
+
+```CSharp
+cyautogui.ConvertTo.toInt(string value);
+```
+
+<br >
+
+<p>Convert FLOAT to INT32</p>
+ 
+```CSharp
+cyautogui.ConvertTo.toInt(float value);
+```
+
+<br >
+
+<p>Convert INT value to STRING</p>
+ 
+```CSharp
+cyautogui.ConvertTo.toString(int key);
+```
+
+<br >
+
+<p>Convert FLOAT value to STRING</p>
+ 
+```CSharp
+cyautogui.ConvertTo.toString(float key);
+```
+
+<br >
+<p>Convert DOUBLE value to STRING</p>
+
+```CSharp
+cyautogui.ConvertTo.toString(double key);
+```
+
+<br >
