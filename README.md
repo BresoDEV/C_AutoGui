@@ -304,7 +304,7 @@ cyautogui.Keyboard.Write(string key)
 ```   
  
  <br >
-<p>Used to press same key, what times you want </p><br /> <br />
+<p>Used to press same key, what times you want </p>
 
 ```CSharp
 cyautogui.Keyboard.WriteMoreThan1time(string key, int times) 
