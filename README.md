@@ -125,3 +125,31 @@ cyautogui.Mouse.MoveAndRightClick(posX, posY)
 
 <br >
 
+<p>Move cursor relative to current position and do right click</p>
+
+
+
+```CSharp
+cyautogui.Mouse.MoveCursorRelAndRightClick(posX, posY)
+```
+
+
+
+
+
+<br >
+
+<p>Do a mouse clik on current mouse position</p>
+
+
+
+```CSharp
+cyautogui.Mouse.DoMouseClick();
+```
+
+
+
+
+
+<br >
+
