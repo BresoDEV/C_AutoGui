@@ -8,8 +8,6 @@
     With this tool, you can control your mouse and keyboard 
     automatically, so you can easily create task automation
     for inumerous things
-
-
  
  */
 
@@ -17,15 +15,17 @@ using System;
 using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
+
+
+namespace CyAutoGui
+{
+
+   
+}
 public class cyautogui
 {
     class def
     {
-        /// <summary>
-        /// Global WAIT timer
-        /// </summary>
-        public static int GLOBAL_TIME = 500;
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
         public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
         //Mouse actions
@@ -33,30 +33,27 @@ public class cyautogui
         private const int MOUSEEVENTF_LEFTUP = 0x04;
         private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
         private const int MOUSEEVENTF_RIGHTUP = 0x10;
-
     }
     public class Mouse
     {
         /// <summary>
         /// Do a mouse right clik on current mouse position
         /// </summary>
-        public static void DoMouseRightClick()
+        public void DoMouseRightClick()
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-            def.mouse_event(0x08 | 0x10, X, Y, 0, 0);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+             def.mouse_event(0x08 | 0x10, X, Y, 0, 0);
         }
+
         /// <summary>
         /// Move cursor to XY pos and do right click
         /// </summary>
-        public static void MoveAndRightClick(int x, int y)
+        public void MoveAndRightClick(int x, int y)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
-            def.mouse_event(0x08 | 0x10, (uint)x, (uint)y, 0, 0);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+           def.mouse_event(0x08 | 0x10, (uint)x, (uint)y, 0, 0);
         }
+
         /// <summary>
         /// Move cursor relative to current position and do right click
         /// </summary>
@@ -64,33 +61,32 @@ public class cyautogui
         /// <param name="y"></param>
         public static void MoveCursorRelAndRightClick(int x, int y)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             Cursor.Position = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-            def.mouse_event(0x08 | 0x10, X, Y, 0, 0);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+           def.mouse_event(0x08 | 0x10, X, Y, 0, 0);
         }
+
+
+
         /// <summary>
         /// Do a mouse clik on current mouse position
         /// </summary>
-        public static void DoMouseClick()
+        public void DoMouseClick()
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
         }
+
         /// <summary>
         /// Move cursor to XY pos and do click
         /// </summary>
-        public static void MoveAndClick(uint x, uint y)
+        public void MoveAndClick(int x, int y)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
-            def.mouse_event(0x02 | 0x04, x, y, 0, 0);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+           def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
         }
+
         /// <summary>
         /// Move cursor relative to current position and do click
         /// </summary>
@@ -98,37 +94,36 @@ public class cyautogui
         /// <param name="y"></param>
         public static void MoveCursorRelAndClick(int x, int y)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             Cursor.Position = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
         }
+
         /// <summary>
         /// Do double click on current position
         /// </summary>
-        public static void DoMouseDoubleClick()
+        public void DoMouseDoubleClick()
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
-            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
+           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
         }
+
+
         /// <summary>
         /// Move cursor to XY position and do double click
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public static void MoveAndDoubleClick(int x, int y)
+        public void MoveAndDoubleClick(int x, int y)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
-            def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
-            def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+           def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
+           def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
         }
+
+
         /// <summary>
         /// Move cursor to XY current relative position and do double click
         /// </summary>
@@ -136,14 +131,15 @@ public class cyautogui
         /// <param name="y"></param>
         public static void MoveCursorRelAndDoubleClick(int x, int y)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             Cursor.Position = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
-            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
+           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
         }
+
+
+
         /// <summary>
         /// Move the mouse to XY coordinates
         /// </summary>
@@ -151,10 +147,9 @@ public class cyautogui
         /// <param name="y"></param>
         public static void MoveCursorTo(int x, int y)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             Cursor.Position = new Point(x, y);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
         }
+
         /// <summary>
         /// Move mouse relative to its current position
         /// </summary>
@@ -162,10 +157,9 @@ public class cyautogui
         /// <param name="y"></param>
         public static void MoveCursorRel(int x, int y)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             Cursor.Position = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
         }
+
         /// <summary>
         /// Get the Y position of the mouse
         /// </summary>
@@ -174,6 +168,7 @@ public class cyautogui
         {
             return Cursor.Position.Y;
         }
+
         /// <summary>
         /// Get the X position of the mouse
         /// </summary>
@@ -182,7 +177,14 @@ public class cyautogui
         {
             getMouseY();
             return Cursor.Position.X;
+
         }
+
+
+
+
+
+
         /// <summary>
         /// Get the Y position of the mouse on STRING format
         /// </summary>
@@ -191,6 +193,7 @@ public class cyautogui
         {
             return Convert.ToString(Cursor.Position.Y);
         }
+
         /// <summary>
         /// Get the X position of the mouse on STRING format
         /// </summary>
@@ -199,69 +202,87 @@ public class cyautogui
         {
             getMouseY();
             return Convert.ToString(Cursor.Position.X);
+
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
     public class Keyboard
     {
         /// <summary>
         /// Used if you need press hotkeys, like Shift+A, Shift+Z<br /><br />
         /// Example of Shift+A:<br />
-        /// ShiftHotkey("a");<br /><br />
-        /// TIP: Allways LOWER case 
+        /// ShiftHotkey("A");
         /// </summary>
         /// <param name="key"></param>
         public static void ShiftHotkey(string key)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             SendKeys.Send("+{" + key + "}");
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
         }
+
         /// <summary>
         /// Used if you need press hotkeys, like Alt+A, Alt+Z<br /><br />
         /// Example of Alt+A:<br />
-        /// AltHotkey("a");<br /><br />
-        /// TIP: Allways LOWER case 
+        /// AltHotkey("A");
         /// </summary>
         /// <param name="key"></param>
         public static void AltHotkey(string key)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             SendKeys.Send("%{" + key + "}");
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
         }
+
         /// <summary>
         /// Simulates you cliqued TAB to change to next imput ou next object
         /// </summary>
         /// <param name="key"></param>
         public static void TAB(int times)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             SendKeys.Send("^{TAB " + times + "}");
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
         }
+
+
         /// <summary>
         /// Used if you need press hotkeys, like Ctrl+A, Ctrl+Z<br /><br />
         /// Example of Ctrl+A:<br />
-        /// CTRLHotkey("a");<br /><br />
-        /// TIP: Allways LOWER case 
+        /// CTRLHotkey("A");
         /// </summary>
         /// <param name="key"></param>
         public static void CTRLHotkey(string key)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
-            SendKeys.Send("^(" + key + ")");
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+            SendKeys.Send("^{" + key + "}");
         }
+
+
+
+
         /// <summary>
         /// Write string, simulates keyboard
         /// </summary>
         /// <param name="key"></param>
         public static void Write(string key)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             SendKeys.Send(key);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+
         }
+
         /// <summary>
         /// Used to press same key, what times you want <br /> <br />
         /// Ex: <br />
@@ -273,10 +294,11 @@ public class cyautogui
         /// <param name="times"></param>
         public static void WriteMoreThan1time(string key, int times)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
-            SendKeys.SendWait("{" + key + " " + Convert.ToString(times) + "}");
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+            SendKeys.Send("{" + key + " " + Convert.ToString(times) + "}");
+
         }
+
+
         /// <summary><br />
         /// <br /><br />Simulate keyboard press<br /><br />
         /// Read more on Google, search for <br />
@@ -286,39 +308,16 @@ public class cyautogui
         /// <param name="key"></param>
         public static void KeyPress(string key)
         {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
             SendKeys.Send("{" + key + "}");
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
+
         }
+
     }
+
     public class Other
     {
-        /// <summary>
-        /// Define your new Global Wait Timer, default is 500
-        /// </summary>
-        /// <param name="time"></param>
-        public static void ChangeGlobalTimePointer(int time)
-        {
-            def.GLOBAL_TIME = time;
-        }
-        /// <summary>
-        /// Start another process by name
-        /// </summary>
-        /// <param name="proc"></param>
-        public static void StartProcess(string proc)
-        {
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
-            Process p = Process.Start(proc);
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
-        }
-        /// <summary>
-        /// Used to open folders or files on your PC
-        /// </summary>
-        /// <param name="path"></param>
-        public static void OpenFolder(string path)
-        { 
-            Process.Start(@path);
-        }
+
+
         /// <summary>
         /// Get the size X of the primary monitor on string format
         /// </summary>
@@ -327,6 +326,7 @@ public class cyautogui
         {
             return Convert.ToString(Screen.PrimaryScreen.Bounds.Width);
         }
+
         /// <summary>
         /// Get the size Y of the primary monitor on string format
         /// </summary>
@@ -335,6 +335,10 @@ public class cyautogui
         {
             return Convert.ToString(Screen.PrimaryScreen.Bounds.Height);
         }
+
+
+
+
         /// <summary>
         /// Get the size X of the primary monitor
         /// </summary>
@@ -343,6 +347,7 @@ public class cyautogui
         {
             return Screen.PrimaryScreen.Bounds.Width;
         }
+
         /// <summary>
         /// Get the size Y of the primary monitor
         /// </summary>
@@ -351,6 +356,7 @@ public class cyautogui
         {
             return Screen.PrimaryScreen.Bounds.Height;
         }
+
         /// <summary>
         /// This displays some text with an OK button.
         /// </summary>
@@ -359,6 +365,8 @@ public class cyautogui
         {
             MessageBox.Show(msg);
         }
+
+
         /// <summary>
         /// Do some pause on code. <br /><br />
         /// Ex: <br />
@@ -369,10 +377,9 @@ public class cyautogui
         /// <param name="timeMiliseconds"></param>
         public static void Wait(int timeMiliseconds)
         {
-
-            System.Threading.Thread.Sleep(def.GLOBAL_TIME);
-
+            System.Threading.Thread.Sleep(timeMiliseconds);
         }
+
 
         /// <summary>
         /// Join several string and make onlt one
@@ -432,9 +439,14 @@ public class cyautogui
         {
             return _1 + _2 + _3 + _4 + _5 + _6 + _7 + _8 + _9 + _10 + _11 + _12 + _13 + _14 + _15 + _16 + _17 + _18 + _19 + _20 + _21 + _22 + _23 + _24 + _25 + _26 + _27 + _28 + _29 + _30 + _31 + _32 + _33 + _34 + _35 + _36 + _37 + _38 + _39 + _40 + _41 + _42 + _43 + _44 + _45 + _46 + _47 + _48 + _49 + _50;
         }
+
+
     }
+
+
     public class ConvertTo
     {
+
         /// <summary>
         /// Convert INT value to DOUBLE
         /// </summary>
@@ -444,6 +456,7 @@ public class cyautogui
         {
             return Convert.ToDouble(value);
         }
+
         /// <summary>
         /// Convert STRING value to DOUBLE
         /// </summary>
@@ -453,6 +466,8 @@ public class cyautogui
         {
             return Convert.ToDouble(value);
         }
+
+
         /// <summary>
         /// Convert STRING to INT32
         /// </summary>
@@ -462,6 +477,7 @@ public class cyautogui
         {
             return Convert.ToInt32(value);
         }
+
         /// <summary>
         /// Convert FLOAT to INT32
         /// </summary>
@@ -471,18 +487,23 @@ public class cyautogui
         {
             return Convert.ToInt32(value);
         }
+
+
+ 
         /// <summary>
         /// Convert INT value to STRING
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
         public static string toString(int key) { return Convert.ToString(key); }
+
         /// <summary>
         /// Convert FLOAT value to STRING
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
         public static string toString(float key) { return Convert.ToString(key); }
+
         /// <summary>
         /// Convert DOUBLE value to STRING
         /// </summary>
@@ -490,4 +511,6 @@ public class cyautogui
         /// <returns></returns>
         public static string toString(double key) { return Convert.ToString(key); }
     }
+
 }
+
