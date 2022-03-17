@@ -11,6 +11,13 @@
  
  */
 
+// d8888b. db    db       d8888b. d8888b. d88888b .d8888.  .d88b.  d8888b. d88888b db    db
+// 88  `8D `8b  d8'       88  `8D 88  `8D 88'     88'  YP .8P  Y8. 88  `8D 88'     88    88
+// 88oooY'  `8bd8'        88oooY' 88oobY' 88ooooo `8bo.   88    88 88   88 88ooooo Y8    8P
+// 88~~~b.    88          88~~~b. 88`8b   88~~~~~   `Y8b. 88    88 88   88 88~~~~~ `8b  d8'
+// 88   8D    88          88   8D 88 `88. 88.     db   8D `8b  d8' 88  .8D 88.      `8bd8'
+// Y8888P'    YP          Y8888P' 88   YD Y88888P `8888Y'  `Y88P'  Y8888D' Y88888P    YP
+
 using System;
 using System.Runtime.InteropServices;
 using System.Drawing;
