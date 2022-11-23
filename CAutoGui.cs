@@ -22,13 +22,9 @@ using System;
 using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.Security;
 
-
-namespace CyAutoGui
-{
-
-   
-}
 public class cyautogui
 {
     class def
@@ -40,192 +36,173 @@ public class cyautogui
         private const int MOUSEEVENTF_LEFTUP = 0x04;
         private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
         private const int MOUSEEVENTF_RIGHTUP = 0x10;
+
+        public static int Wait_Time_Global = 1000;
     }
+
+    public static void Wait_Time(int time)
+    {
+        def.Wait_Time_Global = time;
+    }
+
     public class Mouse
     {
-        /// <summary>
-        /// Do a mouse right clik on current mouse position
-        /// </summary>
-        public void DoMouseRightClick()
+        public static void DoMouseRightClick()
         {
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-             def.mouse_event(0x08 | 0x10, X, Y, 0, 0);
+            def.mouse_event(0x08 | 0x10, X, Y, 0, 0);
         }
 
-        /// <summary>
-        /// Move cursor to XY pos and do right click
-        /// </summary>
-        public void MoveAndRightClick(int x, int y)
+        public static void MoveAndRightClick(int x, int y)
         {
-           def.mouse_event(0x08 | 0x10, (uint)x, (uint)y, 0, 0);
+            while (Cursor.Position.X != x) { Cursor.Position = new Point(x, y); }
+            while (Cursor.Position.Y != y) { Cursor.Position = new Point(x, y); }
+            def.mouse_event(0x08 | 0x10, (uint)x, (uint)y, 0, 0);
         }
 
-        /// <summary>
-        /// Move cursor relative to current position and do right click
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
         public static void MoveCursorRelAndRightClick(int x, int y)
         {
-            Cursor.Position = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
+            Cursor.Position = new Point(Cursor.Position.X + x, Cursor.Position.Y + y);
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-           def.mouse_event(0x08 | 0x10, X, Y, 0, 0);
+            while (Cursor.Position.X != X) { Cursor.Position = new Point((int)X, (int)Y); }
+            while (Cursor.Position.Y != Y) { Cursor.Position = new Point((int)X, (int)Y); }
+            def.mouse_event(0x08 | 0x10, X, Y, 0, 0);
         }
 
-
-
-        /// <summary>
-        /// Do a mouse clik on current mouse position
-        /// </summary>
-        public void DoMouseClick()
+        public static void DoMouseClick()
         {
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
+            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
         }
 
-        /// <summary>
-        /// Move cursor to XY pos and do click
-        /// </summary>
-        public void MoveAndClick(int x, int y)
+        public static void MoveAndClick(int x, int y)
         {
-           def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
+            while (Cursor.Position.X != x) { Cursor.Position = new Point(x, y); }
+            while (Cursor.Position.Y != y) { Cursor.Position = new Point(x, y); }
+            def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
         }
 
-        /// <summary>
-        /// Move cursor relative to current position and do click
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+
         public static void MoveCursorRelAndClick(int x, int y)
         {
-            Cursor.Position = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
+            Cursor.Position = new Point(Cursor.Position.X + x, Cursor.Position.Y + y);
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
+            while (Cursor.Position.X != X) { Cursor.Position = new Point((int)X, (int)Y); }
+            while (Cursor.Position.Y != Y) { Cursor.Position = new Point((int)X, (int)Y); }
+            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
         }
 
-        /// <summary>
-        /// Do double click on current position
-        /// </summary>
-        public void DoMouseDoubleClick()
+
+        public static void DoMouseDoubleClick()
         {
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
-           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
+            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
         }
 
-
-        /// <summary>
-        /// Move cursor to XY position and do double click
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        public void MoveAndDoubleClick(int x, int y)
+        public static void MoveAndDoubleClick(int x, int y)
         {
-           def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
-           def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
+            while (Cursor.Position.X != x) { Cursor.Position = new Point(x, y); }
+            while (Cursor.Position.Y != y) { Cursor.Position = new Point(x, y); }
+            def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            def.mouse_event(0x02 | 0x04, (uint)x, (uint)y, 0, 0);
         }
 
-
-        /// <summary>
-        /// Move cursor to XY current relative position and do double click
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
         public static void MoveCursorRelAndDoubleClick(int x, int y)
         {
-            Cursor.Position = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
+            Cursor.Position = new Point(Cursor.Position.X + x, Cursor.Position.Y + y);
             uint X = (uint)Cursor.Position.X;
             uint Y = (uint)Cursor.Position.Y;
-           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
-           def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
+            while (Cursor.Position.X != X) { Cursor.Position = new Point((int)X, (int)Y); }
+            while (Cursor.Position.Y != Y) { Cursor.Position = new Point((int)X, (int)Y); }
+            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            def.mouse_event(0x02 | 0x04, X, Y, 0, 0);
         }
 
-
-
-        /// <summary>
-        /// Move the mouse to XY coordinates
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
         public static void MoveCursorTo(int x, int y)
         {
-            Cursor.Position = new Point(x, y);
+            while (Cursor.Position.X != x) { Cursor.Position = new Point(x, y); }
+            while (Cursor.Position.Y != y) { Cursor.Position = new Point(x, y); }
         }
 
-        /// <summary>
-        /// Move mouse relative to its current position
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
         public static void MoveCursorRel(int x, int y)
         {
-            Cursor.Position = new Point(Cursor.Position.X - x, Cursor.Position.Y - y);
+            Cursor.Position = new Point(Cursor.Position.X + x, Cursor.Position.Y + y);
+            uint X = (uint)Cursor.Position.X;
+            uint Y = (uint)Cursor.Position.Y;
+            while (Cursor.Position.X != X) { Cursor.Position = new Point((int)X, (int)Y); }
+            while (Cursor.Position.Y != Y) { Cursor.Position = new Point((int)X, (int)Y); }
         }
 
-        /// <summary>
-        /// Get the Y position of the mouse
-        /// </summary>
-        /// <returns></returns>
-        public static int getMouseY()
+
+
+
+    }
+
+    public class Info
+    {
+        public class Mouse
         {
-            return Cursor.Position.Y;
+            public class return_INT
+            {
+                public static int Mouse_Pos_Y()
+                {
+                    return Cursor.Position.Y;
+                }
+                public static int Mouse_Pos_X()
+                {
+                    return Cursor.Position.X;
+                }
+            }
+
+            public class return_STRING
+            {
+                public static string Mouse_Pos_Y()
+                {
+                    return Convert.ToString(Cursor.Position.Y);
+                }
+                public static string Mouse_Pos_X()
+                {
+                    return Convert.ToString(Cursor.Position.X);
+                }
+            }
+
         }
 
-        /// <summary>
-        /// Get the X position of the mouse
-        /// </summary>
-        /// <returns></returns>
-        public static int getMouseX()
+        public class Screens
         {
-            getMouseY();
-            return Cursor.Position.X;
+            public class return_STRING
+            {
+                public static string Screen_Size_X()
+                {
+                    return Convert.ToString(Screen.PrimaryScreen.Bounds.Width);
+                }
+                public static string Screen_Size_Y()
+                {
+                    return Convert.ToString(Screen.PrimaryScreen.Bounds.Height);
+                }
+            }
 
+            public class return_INT
+            {
+                public static int Screen_Size_X()
+                {
+                    return Screen.PrimaryScreen.Bounds.Width;
+                }
+                public static int Screen_Size_Y()
+                {
+                    return Screen.PrimaryScreen.Bounds.Height;
+                }
+            }
         }
-
-
-
-
-
-
-        /// <summary>
-        /// Get the Y position of the mouse on STRING format
-        /// </summary>
-        /// <returns></returns>
-        public static string StringgetMouseY()
-        {
-            return Convert.ToString(Cursor.Position.Y);
-        }
-
-        /// <summary>
-        /// Get the X position of the mouse on STRING format
-        /// </summary>
-        /// <returns></returns>
-        public static string StringgetMouseX()
-        {
-            getMouseY();
-            return Convert.ToString(Cursor.Position.X);
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -234,290 +211,254 @@ public class cyautogui
 
     public class Keyboard
     {
-        /// <summary>
-        /// Used if you need press hotkeys, like Shift+A, Shift+Z<br /><br />
-        /// Example of Shift+A:<br />
-        /// ShiftHotkey("A");
-        /// </summary>
-        /// <param name="key"></param>
-        public static void ShiftHotkey(string key)
+        public static void Shift_(string key)
         {
-            SendKeys.Send("+{" + key + "}");
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.Send("+{" + key.ToLower() + "}");
         }
 
-        /// <summary>
-        /// Used if you need press hotkeys, like Alt+A, Alt+Z<br /><br />
-        /// Example of Alt+A:<br />
-        /// AltHotkey("A");
-        /// </summary>
-        /// <param name="key"></param>
-        public static void AltHotkey(string key)
+        public static void Alt_(string key)
         {
-            SendKeys.Send("%{" + key + "}");
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.Send("%{" + key.ToLower() + "}");
         }
 
-        /// <summary>
-        /// Simulates you cliqued TAB to change to next imput ou next object
-        /// </summary>
-        /// <param name="key"></param>
         public static void TAB(int times)
         {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
             SendKeys.Send("^{TAB " + times + "}");
         }
 
-
-        /// <summary>
-        /// Used if you need press hotkeys, like Ctrl+A, Ctrl+Z<br /><br />
-        /// Example of Ctrl+A:<br />
-        /// CTRLHotkey("A");
-        /// </summary>
-        /// <param name="key"></param>
-        public static void CTRLHotkey(string key)
+        public static void Alt_Tab()
         {
-            SendKeys.Send("^{" + key + "}");
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.Send("%{Tab}");
+        }
+        public static void Press_Enter()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.Send("{ENTER}");
+        }
+
+        public static void Press_PageDown()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{PGDN}");
+        }
+        public static void Press_PageUp()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{PGUP}");
+        }
+
+
+        public static void Press_Backspace()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{BACKSPACE}");
+        }
+
+        public static void Press_Capslock()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{CAPSLOCK}");
+        }
+
+        public static void Press_Delete()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{DELETE}");
+        }
+
+        public static void Press_Arrow_Down()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{DOWN}");
+        }
+        public static void Press_Arrow_Up()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{UP}");
+        }
+        public static void Press_Arrow_Left()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{LEFT}");
+        }
+        public static void Press_Arrow_Right()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{RIGHT}");
+        }
+
+        public static void Press_ESC()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{ESC}");
+        }
+
+       
+
+
+
+        public static void CTRL_(string key)
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.Send("^{" + key.ToLower() + "}");
+        }
+
+
+        public static void Press_End()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{END}");
+        }
+
+        public static void Press_Home()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{HOME}");
+        }
+
+        public static void Select_This_Line()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{HOME}");
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("+{END}");
+        }
+
+        public static void Copy_Selected_Item()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.Send("^{c}");
+        }
+
+        public static void Cut_Selected_Item()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.Send("^{x}");
+        }
+
+        public static void Paste_Selected_Item()
+        {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.Send("^{v}");
         }
 
 
 
-
-        /// <summary>
-        /// Write string, simulates keyboard
-        /// </summary>
-        /// <param name="key"></param>
         public static void Write(string key)
         {
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
             SendKeys.Send(key);
+        }
+
+        public static void Write_More_Than_1_time(string key, int times)
+        { 
+            for (int i = 0; i != times; i++)
+                SendKeys.SendWait(key);
 
         }
 
-        /// <summary>
-        /// Used to press same key, what times you want <br /> <br />
-        /// Ex: <br />
-        /// WriteMoreThan1time("A", 10);<br />
-        /// That code, press key A, 10x<br />
-        /// Output: AAAAAAAAAA
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="times"></param>
-        public static void WriteMoreThan1time(string key, int times)
-        {
-            SendKeys.Send("{" + key + " " + Convert.ToString(times) + "}");
-
-        }
-
-
-        /// <summary><br />
-        /// <br /><br />Simulate keyboard press<br /><br />
-        /// Read more on Google, search for <br />
-        /// SENDKEYS C# <br />
-        /// to see all combinations
-        /// </summary>
-        /// <param name="key"></param>
         public static void KeyPress(string key)
         {
-            SendKeys.Send("{" + key + "}");
-
+            //https://learn.microsoft.com/pt-br/dotnet/api/system.windows.forms.sendkeys.send?view=windowsdesktop-7.0
+            SendKeys.Send("{" + key + "}"); 
         }
-
     }
 
-    public class Other
+    public class Misc_Options
     {
-
-
-        /// <summary>
-        /// Get the size X of the primary monitor on string format
-        /// </summary>
-        /// <returns></returns>
-        public static string StringsizeScreenX()
-        {
-            return Convert.ToString(Screen.PrimaryScreen.Bounds.Width);
-        }
-
-        /// <summary>
-        /// Get the size Y of the primary monitor on string format
-        /// </summary>
-        /// <returns></returns>
-        public static string StringsizeScreenY()
-        {
-            return Convert.ToString(Screen.PrimaryScreen.Bounds.Height);
-        }
-
-
-
-
-        /// <summary>
-        /// Get the size X of the primary monitor
-        /// </summary>
-        /// <returns></returns>
-        public static int sizeScreenX()
-        {
-            return Screen.PrimaryScreen.Bounds.Width;
-        }
-
-        /// <summary>
-        /// Get the size Y of the primary monitor
-        /// </summary>
-        /// <returns></returns>
-        public static int sizeScreenY()
-        {
-            return Screen.PrimaryScreen.Bounds.Height;
-        }
-
-        /// <summary>
-        /// This displays some text with an OK button.
-        /// </summary>
-        /// <param name="msg"></param>
-        public static void alert(string msg)
+        public static void Alert(string msg)
         {
             MessageBox.Show(msg);
         }
-
-
-        /// <summary>
-        /// Do some pause on code. <br /><br />
-        /// Ex: <br />
-        /// 1 second = 1000<br />
-        /// 2 seconds = 2000<br /><br />
-        /// Values is ever * 1000
-        /// </summary>
-        /// <param name="timeMiliseconds"></param>
-        public static void Wait(int timeMiliseconds)
+        public static void Printsreen()
         {
-            System.Threading.Thread.Sleep(timeMiliseconds);
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            SendKeys.SendWait("{PRTSC}");
+        }
+
+        public static void Start_Notepad()
+        { 
+            Process.Start("notepad.exe");
+            Process[] pname = Process.GetProcessesByName("notepad");
+            while (pname.Length == 0) {
+                System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            } 
+        }
+
+        public static void Start_CMD()
+        {
+            Process.Start("cmd.exe");
+            Process[] pname = Process.GetProcessesByName("cmd");
+            while (pname.Length == 0) {
+                System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            } 
+        }
+
+        public static void Start_CMD_and_run_command(string command)
+        {
+            Process.Start("cmd.exe", "/C " + command);
+            Process[] pname = Process.GetProcessesByName("cmd");
+            while (pname.Length == 0)
+            {
+                System.Threading.Thread.Sleep(def.Wait_Time_Global);
+            }
+        }
+
+        public static int Get_Process_ID_by_Name(string processName)
+        {
+            Process[] processlist = Process.GetProcesses();
+            foreach (Process theprocess in processlist)
+            {
+                if(theprocess.ProcessName == processName)
+                {
+                    return theprocess.Id;
+                }
+            }
+            return 0;
+        }
+
+        public static string Get_Process_Name_by_ID(int processID)
+        {
+            Process[] processlist = Process.GetProcesses();
+            foreach (Process theprocess in processlist)
+            {
+                if (theprocess.Id == processID)
+                {
+                    return theprocess.ProcessName;
+                }
+            }
+            return "Process Not Found";
+        }
+
+        public static void Kill_Process_by_Name(string name)
+        {
+            foreach (var process in Process.GetProcessesByName(name))
+            {
+                process.Kill();
+            }
+        }
+
+        public static void Kill_Process_by_ID(int id)
+        {
+            Process[] processlist = Process.GetProcesses();
+            foreach (Process theprocess in processlist)
+            {
+                if (theprocess.Id == id)
+                {
+                    theprocess.Kill();
+                }
+            }
         }
 
 
-        /// <summary>
-        /// Join several string and make onlt one
-        /// </summary>
-        /// <param name="_1"></param>
-        /// <param name="_2"></param>
-        /// <param name="_3"></param>
-        /// <param name="_4"></param>
-        /// <param name="_5"></param>
-        /// <param name="_6"></param>
-        /// <param name="_7"></param>
-        /// <param name="_8"></param>
-        /// <param name="_9"></param>
-        /// <param name="_10"></param>
-        /// <param name="_11"></param>
-        /// <param name="_12"></param>
-        /// <param name="_13"></param>
-        /// <param name="_14"></param>
-        /// <param name="_15"></param>
-        /// <param name="_16"></param>
-        /// <param name="_17"></param>
-        /// <param name="_18"></param>
-        /// <param name="_19"></param>
-        /// <param name="_20"></param>
-        /// <param name="_21"></param>
-        /// <param name="_22"></param>
-        /// <param name="_23"></param>
-        /// <param name="_24"></param>
-        /// <param name="_25"></param>
-        /// <param name="_26"></param>
-        /// <param name="_27"></param>
-        /// <param name="_28"></param>
-        /// <param name="_29"></param>
-        /// <param name="_30"></param>
-        /// <param name="_31"></param>
-        /// <param name="_32"></param>
-        /// <param name="_33"></param>
-        /// <param name="_34"></param>
-        /// <param name="_35"></param>
-        /// <param name="_36"></param>
-        /// <param name="_37"></param>
-        /// <param name="_38"></param>
-        /// <param name="_39"></param>
-        /// <param name="_40"></param>
-        /// <param name="_41"></param>
-        /// <param name="_42"></param>
-        /// <param name="_43"></param>
-        /// <param name="_44"></param>
-        /// <param name="_45"></param>
-        /// <param name="_46"></param>
-        /// <param name="_47"></param>
-        /// <param name="_48"></param>
-        /// <param name="_49"></param>
-        /// <param name="_50"></param>
-        /// <returns></returns>
-        public static string AddString(string _1 = "", string _2 = "", string _3 = "", string _4 = "", string _5 = "", string _6 = "", string _7 = "", string _8 = "", string _9 = "", string _10 = "", string _11 = "", string _12 = "", string _13 = "", string _14 = "", string _15 = "", string _16 = "", string _17 = "", string _18 = "", string _19 = "", string _20 = "", string _21 = "", string _22 = "", string _23 = "", string _24 = "", string _25 = "", string _26 = "", string _27 = "", string _28 = "", string _29 = "", string _30 = "", string _31 = "", string _32 = "", string _33 = "", string _34 = "", string _35 = "", string _36 = "", string _37 = "", string _38 = "", string _39 = "", string _40 = "", string _41 = "", string _42 = "", string _43 = "", string _44 = "", string _45 = "", string _46 = "", string _47 = "", string _48 = "", string _49 = "", string _50 = "")
+        public static void Start_Process(string ExePath)
         {
-            return _1 + _2 + _3 + _4 + _5 + _6 + _7 + _8 + _9 + _10 + _11 + _12 + _13 + _14 + _15 + _16 + _17 + _18 + _19 + _20 + _21 + _22 + _23 + _24 + _25 + _26 + _27 + _28 + _29 + _30 + _31 + _32 + _33 + _34 + _35 + _36 + _37 + _38 + _39 + _40 + _41 + _42 + _43 + _44 + _45 + _46 + _47 + _48 + _49 + _50;
+            Process.Start(ExePath);
+            System.Threading.Thread.Sleep(def.Wait_Time_Global);
         }
-
-
     }
-
-
-    public class ConvertTo
-    {
-
-        /// <summary>
-        /// Convert INT value to DOUBLE
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static double toDouble(int value)
-        {
-            return Convert.ToDouble(value);
-        }
-
-        /// <summary>
-        /// Convert STRING value to DOUBLE
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static double toDouble(string value)
-        {
-            return Convert.ToDouble(value);
-        }
-
-
-        /// <summary>
-        /// Convert STRING to INT32
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static int toInt(string value)
-        {
-            return Convert.ToInt32(value);
-        }
-
-        /// <summary>
-        /// Convert FLOAT to INT32
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static int toInt(float value)
-        {
-            return Convert.ToInt32(value);
-        }
-
-
- 
-        /// <summary>
-        /// Convert INT value to STRING
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public static string toString(int key) { return Convert.ToString(key); }
-
-        /// <summary>
-        /// Convert FLOAT value to STRING
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public static string toString(float key) { return Convert.ToString(key); }
-
-        /// <summary>
-        /// Convert DOUBLE value to STRING
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public static string toString(double key) { return Convert.ToString(key); }
-    }
-
 }
-
