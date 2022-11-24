@@ -35,49 +35,7 @@ using System.Net.NetworkInformation;
 public class cyautogui
 {
 
-    public class Form_Style
-    {
-        public static void AutoGui_Form(Form formulario)
-        {
-            //Como usar:
-            // colocar no formload
-            // cyautogui.Form_Style.AutoGui_Form(this);
-            Panel TOPO = new Panel();
-            Label Nome = new Label();  
-            formulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            formulario.Controls.Add(TOPO);
-            formulario.Cursor = System.Windows.Forms.Cursors.Hand;
-            formulario.Font = new System.Drawing.Font("Times New Roman", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            formulario.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            formulario.HelpButton = true;
-            formulario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            formulario.Name = "AutoGui_Form";
-            formulario.Opacity = 0.95D;
-            formulario.ShowIcon = false;
-            formulario.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            formulario.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            formulario.TopMost = true;
-            TOPO.ResumeLayout(false);
-            TOPO.PerformLayout();
-            formulario.ResumeLayout(false); 
-            TOPO.BackColor = System.Drawing.Color.Black;
-            TOPO.Controls.Add(Nome);
-            TOPO.Dock = System.Windows.Forms.DockStyle.Top;
-            TOPO.Location = new System.Drawing.Point(0, 0);
-            TOPO.Name = "panel1";
-            TOPO.Size = new System.Drawing.Size(596, 46);
-            TOPO.TabIndex = 0; 
-            Nome.AutoSize = true;
-            Nome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            Nome.Location = new System.Drawing.Point(13, 13);
-            Nome.Name = "label1";
-            Nome.Size = new System.Drawing.Size(103, 17);
-            Nome.TabIndex = 0;
-            Nome.Text = formulario.Text;
-            Nome.Font = new System.Drawing.Font("Times New Roman", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-             
-        }
-    }
+
     private class def
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
@@ -262,7 +220,7 @@ public class cyautogui
         {
             public static string PC_Name()
             {
-                return Environment.MachineName; 
+                return Environment.MachineName;
             }
 
             public static string Versao_sistema()
@@ -1432,5 +1390,250 @@ public class cyautogui
 
             return temp;
         }
+    }
+}
+
+
+
+public class Form_Style
+{
+
+    /*
+     * Como usar:
+     * Form_Style.AutoGui_Form(this);
+            Form_Style.AutoGui_Button(button1);
+            Form_Style.AutoGui_CheckBox(checkBox1); 
+            Form_Style.AutoGui_Radio(radioButton2);
+            Form_Style.AutoGui_Label(label1);
+            Form_Style.AutoGui_LinkLabel(linkLabel1); 
+            Form_Style.AutoGui_GroupBox(groupBox1); 
+            Form_Style.AutoGui_ComboBox(comboBox1);  
+            Form_Style.AutoGui_TextBox(textBox1); 
+            Form_Style.AutoGui_Trackbar(trackBar1); 
+            Form_Style.AutoGui_NumericUpDown(numericUpDown1); 
+            Form_Style.AutoGui_RichTextBox(richTextBox1); 
+    */
+
+
+    //fundo
+    private static int R = 0;
+    private static int G = 0;
+    private static int B = 0;
+
+    //fonte
+    private static int R2 = 255;
+    private static int G2 = 111;
+    private static int B2 = 0;
+
+    //topp
+    private static int R3 = 255;
+    private static int G3 = 111;
+    private static int B3 = 0;
+
+
+
+    private static string Fonte_ = "Times New Roman";
+
+    public static void AutoGui_Form(Form formulario)
+    {
+        //Como usar:
+        // colocar no formload
+        // cyautogui.Form_Style.AutoGui_Form(this);
+        Panel TOPO = new Panel();
+        Label Nome = new Label();
+        formulario.BackColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+        formulario.Controls.Add(TOPO);
+        formulario.Cursor = System.Windows.Forms.Cursors.Hand;
+        formulario.Font = new System.Drawing.Font(Fonte_, 12.25F,
+            System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        formulario.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        formulario.HelpButton = true;
+        formulario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+        formulario.Name = "AutoGui_Form";
+        formulario.Opacity = 0.95D;
+        formulario.ShowIcon = false;
+        formulario.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+        formulario.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+        formulario.TopMost = true;
+
+        TOPO.ResumeLayout(false);
+        TOPO.PerformLayout();
+        formulario.ResumeLayout(false);
+        TOPO.BackColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R3)))), ((int)(((byte)(G3)))), ((int)(((byte)(B3)))));
+        TOPO.Controls.Add(Nome);
+        TOPO.Dock = System.Windows.Forms.DockStyle.Top;
+        TOPO.Location = new System.Drawing.Point(0, 0);
+        TOPO.Size = new System.Drawing.Size(596, 46);
+        TOPO.TabIndex = 0;
+        Nome.AutoSize = true;
+        Nome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)
+            (R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+        Nome.Location = new System.Drawing.Point(13, 13);
+        Nome.Size = new System.Drawing.Size(103, 17);
+        Nome.TabIndex = 0;
+        Nome.Text = formulario.Text;
+        Nome.Font = new System.Drawing.Font(Fonte_, 15.2F,
+            System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+    }
+
+    public static void AutoGui_Button(Button butao)
+    {
+        butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_, 11.25F,
+            System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.TabIndex = 0;
+        butao.UseVisualStyleBackColor = true;
+        butao.Margin = new System.Windows.Forms.Padding(6);
+    }
+
+    public static void AutoGui_CheckBox(CheckBox butao)
+    {
+        butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_, 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.TabIndex = 0;
+        butao.Margin = new System.Windows.Forms.Padding(6);
+        butao.UseVisualStyleBackColor = true;
+        butao.BackColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+    }
+
+    public static void AutoGui_Radio(RadioButton butao)
+    {
+        // butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_,
+            11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.TabIndex = 0;
+        butao.Margin = new System.Windows.Forms.Padding(6);
+        butao.UseVisualStyleBackColor = true;
+        butao.BackColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+    }
+
+
+    public static void AutoGui_Label(Label butao)
+    {
+        // butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_,
+            11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.TabIndex = 0;
+        butao.Margin = new System.Windows.Forms.Padding(6);
+        butao.BackColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+    }
+    public static void AutoGui_LinkLabel(LinkLabel butao)
+    {
+        // butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_, 11.25F,
+            System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.TabIndex = 0;
+        butao.BackColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+        butao.LinkColor = Color.White;
+        butao.Margin = new System.Windows.Forms.Padding(6);
+    }
+
+
+    public static void AutoGui_GroupBox(GroupBox butao)
+    {
+        // butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_,
+            11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.TabIndex = 0;
+        butao.Margin = new System.Windows.Forms.Padding(6);
+        butao.BackColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+    }
+
+
+    public static void AutoGui_ComboBox(ComboBox butao)
+    {
+        // butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_,
+            11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.BackColor = System.Drawing.Color.FromArgb(
+           ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+        butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Margin = new System.Windows.Forms.Padding(6);
+
+    }
+
+    public static void AutoGui_ProgressBar(ProgressBar botao)
+    {
+        botao.Margin = new System.Windows.Forms.Padding(6);
+        botao.BackColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+    }
+
+    public static void AutoGui_TextBox(TextBox butao)
+    {
+        // butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_,
+            11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.BackColor = System.Drawing.Color.FromArgb(
+           ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+
+        butao.Margin = new System.Windows.Forms.Padding(6);
+    }
+    public static void AutoGui_Trackbar(TrackBar butao)
+    {
+        butao.Margin = new System.Windows.Forms.Padding(6);
+        // butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_, 11.25F,
+            System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.BackColor = System.Drawing.Color.FromArgb(
+           ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+
+    }
+
+
+
+
+
+
+    public static void AutoGui_NumericUpDown(NumericUpDown butao)
+    {
+        // butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_, 11.25F,
+            System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.BackColor = System.Drawing.Color.FromArgb(
+           ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+
+        butao.Margin = new System.Windows.Forms.Padding(6);
+    }
+
+    public static void AutoGui_RichTextBox(RichTextBox butao)
+    {
+        butao.Margin = new System.Windows.Forms.Padding(6);
+        // butao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        butao.Font = new System.Drawing.Font(Fonte_, 11.25F,
+            System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        butao.ForeColor = System.Drawing.Color.FromArgb(
+            ((int)(((byte)(R2)))), ((int)(((byte)(G2)))), ((int)(((byte)(B2)))));
+        butao.BackColor = System.Drawing.Color.FromArgb(
+           ((int)(((byte)(R)))), ((int)(((byte)(G)))), ((int)(((byte)(B)))));
+        butao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
     }
 }
