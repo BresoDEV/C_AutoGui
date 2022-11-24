@@ -21,29 +21,63 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
-using System;
-using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
-using System.Security;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Text;
 using System.IO;
-using System.Text;
 using System.Security.Cryptography;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Net;
 using System.Reflection;
 using System.Xml;
-using System.Drawing.Printing;
+using System.Net.Sockets;
+using System.Net.NetworkInformation;
 
 public class cyautogui
 {
+
+    public class Form_Style
+    {
+        public static void AutoGui_Form(Form formulario)
+        {
+            //Como usar:
+            // colocar no formload
+            // cyautogui.Form_Style.AutoGui_Form(this);
+            Panel TOPO = new Panel();
+            Label Nome = new Label();  
+            formulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            formulario.Controls.Add(TOPO);
+            formulario.Cursor = System.Windows.Forms.Cursors.Hand;
+            formulario.Font = new System.Drawing.Font("Times New Roman", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            formulario.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            formulario.HelpButton = true;
+            formulario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            formulario.Name = "AutoGui_Form";
+            formulario.Opacity = 0.95D;
+            formulario.ShowIcon = false;
+            formulario.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            formulario.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            formulario.TopMost = true;
+            TOPO.ResumeLayout(false);
+            TOPO.PerformLayout();
+            formulario.ResumeLayout(false); 
+            TOPO.BackColor = System.Drawing.Color.Black;
+            TOPO.Controls.Add(Nome);
+            TOPO.Dock = System.Windows.Forms.DockStyle.Top;
+            TOPO.Location = new System.Drawing.Point(0, 0);
+            TOPO.Name = "panel1";
+            TOPO.Size = new System.Drawing.Size(596, 46);
+            TOPO.TabIndex = 0; 
+            Nome.AutoSize = true;
+            Nome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            Nome.Location = new System.Drawing.Point(13, 13);
+            Nome.Name = "label1";
+            Nome.Size = new System.Drawing.Size(103, 17);
+            Nome.TabIndex = 0;
+            Nome.Text = formulario.Text;
+            Nome.Font = new System.Drawing.Font("Times New Roman", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+             
+        }
+    }
     private class def
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
@@ -224,6 +258,47 @@ public class cyautogui
 
     public class Info
     {
+        public class Computer
+        {
+            public static string PC_Name()
+            {
+                return Environment.MachineName; 
+            }
+
+            public static string Versao_sistema()
+            {
+                return Convert.ToString(Environment.OSVersion);
+            }
+
+            public static string GetLocalIPAddress()
+            {
+                var host = Dns.GetHostEntry(Dns.GetHostName());
+                foreach (var ip in host.AddressList)
+                {
+                    if (ip.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        return ip.ToString();
+                    }
+                }
+                throw new Exception("No network adapters with an IPv4 address in the system!");
+            }
+
+            public static string Get_MAC()
+            {
+                NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+                String enderecoMAC = string.Empty;
+                foreach (NetworkInterface adapter in nics)
+                {
+                    // retorna endereço MAC do primeiro cartão
+                    if (enderecoMAC == String.Empty)
+                    {
+                        IPInterfaceProperties properties = adapter.GetIPProperties();
+                        enderecoMAC = adapter.GetPhysicalAddress().ToString();
+                    }
+                }
+                return enderecoMAC;
+            }
+        }
         public class Mouse
         {
             public class return_INT
