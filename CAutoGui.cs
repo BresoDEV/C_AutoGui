@@ -296,7 +296,19 @@ public class cyautogui
                         enderecoMAC = adapter.GetPhysicalAddress().ToString();
                     }
                 }
-                return enderecoMAC;
+                string abc = enderecoMAC[0].ToString() +
+                        enderecoMAC[1].ToString() + ":" +
+                        enderecoMAC[2].ToString() +
+                        enderecoMAC[3].ToString() + ":" +
+                        enderecoMAC[4].ToString() +
+                        enderecoMAC[5].ToString() + ":" +
+                        enderecoMAC[6].ToString() +
+                        enderecoMAC[7].ToString() + ":" +
+                        enderecoMAC[8].ToString() +
+                        enderecoMAC[9].ToString() + ":" +
+                        enderecoMAC[10].ToString() +
+                        enderecoMAC[11].ToString();
+                return abc;
             }
         }
         public class Mouse
