@@ -1258,6 +1258,22 @@ public class cyautogui
             File.Create(path);
         }
 
+        public static List<string> ListarArquivos(string pasta)
+        {
+            //Exemplo:
+            /*
+              List<string> aa = cyautogui.Pastas.ListarArquivos("E:/");
+              for(int i = 0; i <= (aa.Count() - 1); i++) 
+                MessageBox.Show(aa[i]); 
+            */
+            List<string> temp = new List<string>();
+            string[] fileEntries = Directory.GetFiles(pasta);
+            foreach (string fileName in fileEntries)
+                temp.Add(fileName);
+
+            return temp;
+        }
+
         public static void Criptografar(string inputFile, string outputFile, string password)
         {
             try
@@ -1297,7 +1313,37 @@ public class cyautogui
             cs.Close();
             fsCrypt.Close();
         }
-         
+
     }
 
+    public class Pastas
+    {
+        public static void CriarPasta(string pasta)
+        {
+            if (Directory.Exists(pasta) == false)
+                Directory.CreateDirectory(pasta);
+        }
+
+        public static void Deletar_Pasta(string pasta)
+        {
+            if (Directory.Exists(pasta) == false)
+                Directory.Delete(pasta);
+        }
+
+        public static List<string> ListarPastas(string pasta)
+        {
+            //Exemplo:
+            /*
+              List<string> aa = cyautogui.Pastas.ListarPastas("E:/");
+              for(int i = 0; i <= (aa.Count() - 1); i++) 
+                MessageBox.Show(aa[i]); 
+            */
+            List<string> temp = new List<string>();
+            string[] fileEntries = Directory.GetDirectories(pasta);
+            foreach (string fileName in fileEntries)
+                temp.Add(fileName);
+
+            return temp;
+        }
+    }
 }
